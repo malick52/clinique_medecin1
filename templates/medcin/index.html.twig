@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Medcin index{% endblock %}
+
+{% block content %}
+    <h1>Medcin index</h1>
+    <a name="" id="" class="btn btn-primary" href="{{ path('medcin_new') }}" role="button">Ajout Medecin</a>
+
+    <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Prenom</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Telephone</th>
+                    <th>Date_naissance</th>
+                    <th>Matricule</th>
+                    <th>Service</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for medcin in medcins %}
+                <tr>
+                    <td>{{ medcin.id }}</td>
+                    <td>{{ medcin.prenom }}</td>
+                    <td>{{ medcin.nom }}</td>
+                    <td>{{ medcin.email }}</td>
+                    <td>{{ medcin.telephone }}</td>
+                    <td>{{ medcin.dateNaissance | date ('d/m/Y')}}</td>
+                    <td>{{ medcin.matricule }}</td>
+                    <td>{{ medcin.services.libelle }}</td>
+                   
+        
+                <td>
+                <a name="" id="" class="btn btn-primary" href="{{ path('medcin_show', {'id': medcin.id}) }}" role="button">Afficher</a>
+                <a name="" id="" class="btn btn-primary" href="{{ path('medcin_edit', {'id': medcin.id}) }}" role="button">Modifier</a>
+                    <a name="" id="" class="btn btn-danger" href="{{ path('medcin_delete', {'id': medcin.id}) }}"role="button">Supprimer</a>
+                    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+       
+       
+    </table>
+
+    
+{% endblock %}

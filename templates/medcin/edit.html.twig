@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier Medcin{% endblock %}
+
+{% block body %}
+    <h1>Edit Medcin</h1>
+
+    {{ include('medcin/_form.html.twig', {'button_label': 'Update'}) }}
+
+  
+
+    {{ include('medcin/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Medcin{% endblock %}
+
+{% block body %}
+    <h1>Medcin</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ medcin.id }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ medcin.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ medcin.nom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ medcin.email }}</td>
+            </tr>
+            <tr>
+                <th>Télephone</th>
+                <td>{{ medcin.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Date_naissance</th>
+                <td>{{ medcin.dateNaissance | date ('d/m/Y')}}</td>
+            </tr>
+            <tr>
+                <th>Matricule</th>
+                <td>{{ medcin.matricule }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a name="" id="" class="btn btn-primary" href="{{ path('medcin_index') }}" role="button">Retour</a>
+
+   <a name="" id="" class="btn btn-primary" href="{{ path('medcin_edit', {'id': medcin.id}) }}" role="button">Modifier</a>
+
+    
+
+    {{ include('medcin/_delete_form.html.twig') }}
+{% endblock %}
